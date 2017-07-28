@@ -7,10 +7,14 @@ def load_attempts():
     attempts = []
     for i in range(1, 11):
         url = 'https://devman.org/api/challenges/solution_attempts/?page='  + str(i)
-        json_data = requests.get(url).json()
-        for attempt in json_data["records"]:
-            if attempt['timestamp'] is not None:
-                attempts.append(attempt)
+        try:
+            json_data = requests.get(url).json()
+        except requests.exceptions.ConnectionError as error:
+            print(error)
+        else:
+            for attempt in json_data["records"]:
+                if attempt['timestamp'] is not None:
+                    attempts.append(attempt)
     return attempts
 
 
