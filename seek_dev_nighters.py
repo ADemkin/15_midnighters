@@ -6,9 +6,10 @@ import datetime
 def load_attempts():
     attempts = []
     for page_index in range(1, 11):
-        url = 'https://devman.org/api/challenges/solution_attempts/?page=' + str(page_index)
+        url = 'https://devman.org/api/challenges/solution_attempts/'
+        params = {"page":str(page_index)}
         try:
-            json_data = requests.get(url).json()
+            json_data = requests.get(url, params=params).json()
         except requests.exceptions.ConnectionError as error:
             print(error)
         else:
