@@ -1,6 +1,6 @@
 # Night Owls Detector
 
-This script will detect a night owls within a [devman](devman.org) community. 
+This script will detect a night owls within a [devman](http://devman.org) community. 
 
 To do this it will connect to [devman api](http://devman.org/api/challenges/solution_attempts/?page=2), parse it, convert server local timezone to submitter local timezone and print out only late night submits.
 
